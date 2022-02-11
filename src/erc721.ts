@@ -13,12 +13,15 @@ function stringtobytes(string:string){
 }
 
 
-const token_uri = stringtobytes('http');
+
+//
+const NAME  = stringtobytes('web3games');
+const SYMBOL = stringtobytes('W3G');
+const Base_Uri = stringtobytes('http');
 
 
 const to = '0xee38Efa7f942B20D33e1f8e3F56c284E54127fCE';
-const id = '1';
-const amount = '1000';
+const tokenId = '2';
 
 // Variables
 const account_from = {
@@ -31,27 +34,27 @@ const wallet = new ethers.Wallet(account_from.privateKey, customHttpProvider);
 
 
 const main = async () => {
-  const contractAddress = '0xFDFFFFFF00000000000000000000000000000001';
+  const contractAddress = '0xFEFFFFFF00000000000000000000000000000001';
   const abi = [
-    'function create(bytes token_uri) public',
-    'function mint(address to, uint256 id,uint256 amount) public',
+    'function create(bytes name,bytes symbol,bytes base_uri) public',
+    'function mint(address to,uint256 tokenId) public',
   ];
   const myContract = new ethers.Contract(contractAddress,abi,wallet);
   console.log('----------',myContract);
 
 
-  // const result1 = await myContract.create(token_uri,{
+  // const result1 = await myContract.create(NAME,SYMBOL,Base_Uri,{
   //   gasLimit: '5000000',
   //   gasPrice: '1000000000',
   // });
   // console.log('result', result1);
 
-  const result2 = await myContract.mint(to,id,amount,{
-    gasLimit: '5000000',
-    gasPrice: '1000000000',
-  });
+  // const result2 = await myContract.mint(to,tokenId,{
+  //   gasLimit: '5000000',
+  //   gasPrice: '1000000000',
+  // });
 
-  console.log('result', result2);
+  // console.log('result', result2);
   // const name = await myContract.name();
   // console.log('name', name);
   // const balance = await myContract.balanceOf(from);
