@@ -43,11 +43,11 @@ const main = async () => {
   console.log('----------',myContract);
 
 
-  // const result1 = await myContract.create(NAME,SYMBOL,Base_Uri,{
-  //   gasLimit: '5000000',
-  //   gasPrice: '1000000000',
-  // });
-  // console.log('result', result1);
+  const result1 = await myContract.create(NAME,SYMBOL,Base_Uri,{
+    gasLimit: '5000000',
+    gasPrice: '1000000000',
+  });
+  console.log('result', result1);
 
   // const result2 = await myContract.mint(to,tokenId,{
   //   gasLimit: '5000000',
